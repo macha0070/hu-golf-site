@@ -91,6 +91,87 @@
             padding: 20px;
             margin-top: 40px;
         }
+        /* ===========================
+        スマホ最適化（幅768px以下）
+        =========================== */
+        @media (max-width: 768px) {
+
+            header {
+                padding: 15px 20px;
+            }
+
+            nav a {
+                margin-right: 12px;
+                font-size: 14px;
+            }
+
+            .hero {
+                height: 40vh;
+                background-size: cover;
+                text-align: center;
+                padding: 0 10px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 40px 15px;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            .card-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .card {
+                padding: 15px;
+            }
+
+            .member-img {
+                width: 100px;
+                height: 100px;
+            }
+
+            footer {
+                font-size: 14px;
+                padding: 15px;
+            }
+        }
+
+        /* ===========================
+        超小型スマホ（幅480px以下）
+        =========================== */
+        @media (max-width: 480px) {
+
+            nav a {
+                margin-right: 8px;
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .card {
+                padding: 12px;
+            }
+
+            .member-img {
+                width: 85px;
+                height: 85px;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+        }
+
     </style>
 </head>
 
