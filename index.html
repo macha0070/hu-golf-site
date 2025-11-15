@@ -38,6 +38,25 @@
             justify-content: center;
             color: white;
         }
+        /* トップ画像の黒レイヤー */
+        .hero {
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35); /* ← 黒透明レイヤーの濃さ（0.35がちょうど良い） */
+            z-index: 1;
+        }
+
+        /* テキストを前面にする */
+        .hero h1 {
+            position: relative;
+            z-index: 2;
+        }
+
 
         .hero h1 {
             font-size: 3rem;
