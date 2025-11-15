@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>広島大学ゴルフ部 公式サイト</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Noto Sans JP", sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background: #0c6d3d;
+            color: white;
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+        }
+
+        nav a {
+            color: white;
+            margin-right: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            height: 55vh;
+            background: url("images/hero.jpg") center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+        }
+
+        h2 {
+            color: #0c6d3d;
+            border-left: 6px solid #0c6d3d;
+            padding-left: 10px;
+        }
+
+        /* セクション */
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        /* カード */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .member-card {
+            text-align: center;
+        }
+
+        .member-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #ccc;
+            margin: auto;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: #0c6d3d;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a href="#top">トップ</a>
+        <a href="#about">部紹介</a>
+        <a href="#members">部員紹介</a>
+        <a href="#schedule">スケジュール</a>
+        <a href="#contact">お問い合わせ</a>
+    </nav>
+</header>
+
+<!-- トップ -->
+<div class="hero" id="top">
+    <h1>広島大学ゴルフ部</h1>
+</div>
+
+<!-- 部紹介 -->
+<section id="about">
+    <h2>部紹介</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>活動日</h3>
+            <p>（※ここに記入）</p>
+        </div>
+
+        <div class="card">
+            <h3>練習場所</h3>
+            <p>（※ここに記入）</p>
+        </div>
+
+        <div class="card">
+            <h3>部員数</h3>
+            <p>（※ここに記入）</p>
+        </div>
+
+        <div class="card">
+            <h3>男女比</h3>
+            <p>（※ここに記入）</p>
+        </div>
+
+        <div class="card">
+            <h3>主な戦績</h3>
+            <p>（※ここに記入）</p>
+        </div>
+    </div>
+</section>
+
+<!-- 部員紹介 -->
+<section id="members">
+    <h2>部員紹介</h2>
+    <div class="card-container">
+        <div class="card member-card">
+            <div class="member-img"></div>
+            <h3>名前</h3>
+            <p>学部 / 学年</p>
+            <p>コメント</p>
+        </div>
+
+        <div class="card member-card">
+            <div class="member-img"></div>
+            <h3>名前</h3>
+            <p>学部 / 学年</p>
+            <p>コメント</p>
+        </div>
+
+        <!-- 部員が増えてもコピペすればOK -->
+    </div>
+</section>
+
+<!-- スケジュール -->
+<section id="schedule">
+    <h2>スケジュール</h2>
+    <p>大会・合宿・イベントの予定を掲載しています。</p>
+    <p>Googleカレンダーを埋め込む場合は以下に追加：</p>
+
+    <!-- 例：Googleカレンダー埋め込み -->
+    <!--
+    <iframe src="YOUR_CALENDAR_URL"
+        style="border: 0" width="100%" height="500" frameborder="0" scrolling="no">
+    </iframe>
+    -->
+</section>
+
+<!-- お問い合わせ -->
+<section id="contact">
+    <h2>お問い合わせ</h2>
+    <p>入部希望・質問などはこちらへ：</p>
+
+    <ul>
+        <li>メール：your_mail@example.com</li>
+        <li>Instagram：@your_instagram</li>
+    </ul>
+</section>
+
+<footer>
+    © 2025 広島大学ゴルフ部
+</footer>
+
+</body>
+</html>
