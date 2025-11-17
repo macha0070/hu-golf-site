@@ -151,6 +151,36 @@
             padding: 20px;
             margin-top: 40px;
         }
+        /* ===== ギャラリー ===== */
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* スマホ */
+        @media (max-width: 600px) {
+            .gallery-grid img {
+                height: 160px;
+            }
+        }
+
         /* ===========================
         スマホ最適化（幅768px以下）
         =========================== */
@@ -242,6 +272,7 @@
         <a href="#top">トップ</a>
         <a href="#about">部紹介</a>
         <a href="#members">部員紹介</a>
+        <a href="#gallery">ギャラリー</a>
         <a href="#schedule">スケジュール</a>
         <a href="#contact">お問い合わせ</a>
     </nav>
@@ -301,6 +332,21 @@
         <!-- 部員が増えてもコピペすればOK -->
     </div>
 </section>
+<!-- ギャラリー -->
+<section id="gallery">
+    <h2>ギャラリー</h2>
+    <p>練習風景・大会写真・合宿などの様子をまとめています。</p>
+
+    <div class="gallery-grid">
+        <img src="images/gallery/photo1.jpg" alt="">
+        <img src="images/gallery/photo2.jpg" alt="">
+        <img src="images/gallery/photo3.jpg" alt="">
+        <img src="images/gallery/photo4.jpg" alt="">
+        <img src="images/gallery/photo5.jpg" alt="">
+        <img src="images/gallery/photo6.jpg" alt="">
+    </div>
+</section>
+
 
 <!-- スケジュール -->
 <section id="schedule">
