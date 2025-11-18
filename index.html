@@ -106,17 +106,33 @@
         }
 
         /* 丸写真を美しく */
+        
+        /* ===== メンバー写真の見た目最適化 ===== */
+
+        /* ===== メンバー写真：強制ズーム & 顔位置最適化 ===== */
+
+        /* デフォルト：気持ち強めにズームして顔が埋まるように */
         .member-img {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
-            margin: 0 auto 10px auto;
+            overflow: hidden;
+
+            /* ↓これがあれば確実に中央 */
+            background-position: center center;
             background-size: cover;
-            background-position: center;
             background-repeat: no-repeat;
-            border: 4px solid #0c6d3d; /* ゴルフ部カラーに統一 */
-            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+
+            margin: 0 auto 12px;
+            border: 4px solid #0c6d3d;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
+
+        /* ホバーで軽く拡大 */
+        .member-img:hover {
+            transform: scale(1.06);
+        }
+
 
         /* 名前 */
         .member-card h3 {
@@ -133,14 +149,7 @@
             font-size: 0.95rem;
         }
 
-        .member-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: #ccc;
-            margin: auto;
-            margin-bottom: 10px;
-        }
+        
 
         footer {
             background: #0c6d3d;
@@ -406,7 +415,7 @@
 
         <div class="card member-card leader">
             <div class="badge">部長</div>
-            <div class="member-img1" style="background-image: url('images/members/mine.jpg');"></div>
+            <div class="member-img" style="background-image: url('images/members/kajiyama.jpg');"></div>
             <h3>梶山 和</h3>
             <p>総合科学部 / 3年</p>
             <p>コメント</p>
@@ -414,7 +423,7 @@
         
         <div class="card member-card subleader">
             <div class="badge">副部長</div>
-            <div class="member-img" style="background-image: url('images/members/kajiyama.jpg');"></div>
+            <div class="member-img" style="background-image: url('images/members/mine.jpg');"></div>
             <h3>峰 康介</h3>
             <p>総合科学部 / 3年</p>
             <p>コメント</p>
