@@ -98,6 +98,7 @@
             text-align: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
+            position: relative; 
         }
 
         .member-card:hover {
@@ -318,28 +319,32 @@
 
         /* ===== 部長・副部長バッジ（★付き） ===== */
 
+        /* ===== 部長・副部長バッジ（常時表示） ===== */
+
         .badge {
             position: absolute;
             top: 12px;
             left: 12px;
             background: #0c6d3d;
             color: white;
-            padding: 4px 12px 4px 10px;
-            font-size: 0.8rem;
+            padding: 4px 12px;
+            font-size: 0.9rem;
             font-weight: bold;
             border-radius: 6px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 4px; /* 星との間隔 */
-            z-index: 3;
+            gap: 4px;
+            z-index: 10;   /* ← これが超重要！ */
         }
 
+        /* 星マークはCSSで付け足す */
         .badge::before {
-            content: "★";               /* ← 星アイコン */
+            content: "★";
             color: gold;
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
+
 
 
         /* 部長・副部長カードの特別枠 */
