@@ -305,6 +305,42 @@
             align-items: center;
             justify-content: center;
         }
+        /* ===== 部長・副部長バッジ ===== */
+
+        /* ===== 部長・副部長バッジ（★付き） ===== */
+
+        .badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #0c6d3d;
+            color: white;
+            padding: 4px 12px 4px 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 4px; /* 星との間隔 */
+            z-index: 3;
+        }
+
+        .badge::before {
+            content: "★";               /* ← 星アイコン */
+            color: gold;
+            font-size: 0.9rem;
+        }
+
+
+        /* 部長・副部長カードの特別枠 */
+        .card.leader {
+            border: 3px solid #0c6d3d;
+        }
+
+        .card.subleader {
+            border: 3px solid #2d8a54; /* ちょい明るくして区別 */
+        }
 
     </style>
 </head>
@@ -367,6 +403,23 @@
 <section id="members">
     <h2>部員紹介</h2>
     <div class="card-container">
+
+        <div class="card member-card leader">
+            <div class="badge">部長</div>
+            <div class="member-img" style="background-image: url('images/mine.jpg');"></div>
+            <h3>梶山 和</h3>
+            <p>総合科学部 / 3年</p>
+            <p>コメント</p>
+        </div>
+        
+        <div class="card member-card subleader">
+            <div class="badge">副部長</div>
+            <div class="member-img" style="background-image: url('images/kajiyama.jpg');"></div>
+            <h3>峰 康介</h3>
+            <p>総合科学部 / 3年</p>
+            <p>コメント</p>
+        </div>
+
         <div class="card member-card">
             <div class="member-img1"></div>
             <h3>梶山和</h3>
