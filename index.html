@@ -5,8 +5,16 @@
     <link rel="apple-touch-icon" href="/favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="広島大学, ゴルフ部, 広大, ゴルフ, サークル, 部活, 新歓, sports, golf">
+    <meta property="og:title" content="広島大学ゴルフ部 公式サイト">
+    <meta property="og:description" content="広島大学ゴルフ部の活動紹介、新歓情報、月例会、合宿、部員紹介などを掲載。">
+    <meta property="og:image" content="https://hu-golf-site.vercel.app/images/top.jpg">
+    <meta property="og:url" content="https://hu-golf-site.vercel.app">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="description" content="広島大学ゴルフ部の公式サイト。活動日、月例会、部員紹介、試合情報、新歓情報を掲載。東広島で活動する学生ゴルファーを募集中。">
     <meta name="google-site-verification" content="eWsYFVLppyuOTtQJ0kqffaa2_iQK_AmvT0dG80dae0A" />
-    <title>広島大学ゴルフ部 公式サイト</title>
+    <title>広島大学ゴルフ部 公式サイト HIROSHIMA UNIVERSITY GOLF TEAM</title>
     <style>
         :root {
             --primary: #0c6d3d;     /* メインの濃い緑 */
@@ -668,7 +676,7 @@
 
         <div class="card member-card leader">
             <div class="badge">部長</div>
-            <div class="member-img" style="background-image: url('images/members/kajiyama.jpg');"></div>
+            <div class="member-img" style="background-image: url('images/members/kajiyama.jpg');" alt="広島大学ゴルフ部 部長 梶山和"></div>
             <h3>梶山 和</h3>
             <p>総合科学部 / 3年</p>
             <p>コメント</p>
@@ -676,21 +684,21 @@
         
         <div class="card member-card subleader">
             <div class="badge">副部長</div>
-            <div class="member-img" style="background-image: url('images/members/mine.jpg');"></div>
+            <div class="member-img" style="background-image: url('images/members/mine.jpg');" alt="広島大学ゴルフ部 副部長 峰康介"></div>
             <h3>峰 康介</h3>
             <p>総合科学部 / 3年</p>
             <p>コメント</p>
         </div>
 
         <div class="card member-card">
-            <div class="member-img" style="background-image: url('images/members/meuchi.jpg');"></div>
+            <div class="member-img" style="background-image: url('images/members/meuchi.jpg');" alt="広島大学 ゴルフ部 明地祐樹"></div>
             <h3>明地祐樹</h3>
             <p>工学部 / 2年</p>
             <p>ベストスコア更新目指して頑張ります</p>
         </div>
 
         <div class="card member-card">
-            <div class="member-img" style="background-image: url('images/members/torii.jpg');"></div>
+            <div class="member-img" style="background-image: url('images/members/torii.jpg');" alt="広島大学 ゴルフ部 鳥居浩太"></div>
             <h3>鳥居浩太</h3>
             <p>文学部 / 1年</p>
             <p>ゴルフ経験は長いので頑張ります！ぜひ一緒にゴルフしましょう！</p>
@@ -848,6 +856,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     targets.forEach(target => observer.observe(target));
 });
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SportsTeam",
+  "name": "広島大学ゴルフ部",
+  "sport": "Golf",
+  "url": "https://hu-golf-site.vercel.app",
+  "memberOf": "広島大学",
+  "description": "広島大学ゴルフ部の活動紹介、新歓、試合情報、月例会、部員紹介を掲載。",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "東広島市",
+    "addressRegion": "広島県",
+    "addressCountry": "JP"
+  }
+}
 </script>
 
 </body>
