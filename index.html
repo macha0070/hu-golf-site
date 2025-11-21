@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="eWsYFVLppyuOTtQJ0kqffaa2_iQK_AmvT0dG80dae0A" />
@@ -18,6 +20,7 @@
             color: white;
             padding: 20px 40px;
             position: sticky;
+            z-index: 1000;
             top: 0;
         }
 
@@ -59,6 +62,59 @@
         .hero h1 {
             font-size: 3rem;
             text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+        }
+        /* ===== HERO セクション強化版 ===== */
+        .hero {
+            height: 60vh;
+            background: 
+                linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
+                url("images/top.jpg") center/cover;
+            text-align: center;
+            position: relative;
+            color: white;
+        }
+
+        /* メインタイトル */
+        .hero .title-main {
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin: 0;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* 英語サブタイトル */
+        .hero .title-sub {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            letter-spacing: 3px;
+            opacity: 0.95;
+        }
+
+        /* 下線（大学スポーツサイト風） */
+        .hero .title-line {
+            width: 80px;
+            height: 3px;
+            background: #0c6d3d;
+            margin: 18px auto 0;
+            border-radius: 2px;
+        }
+
+        /* スクロール誘導アイコン */
+        .hero .scroll-down {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.8rem;
+            animation: bounce 1.5s infinite;
+            opacity: 0.85;
+        }
+
+        /* バウンスアニメーション */
+        @keyframes bounce {
+            0%, 100% { transform: translate(-50%, 0); }
+            50% { transform: translate(-50%, -8px); }
         }
 
         h2 {
@@ -155,10 +211,45 @@
         footer {
             background: #0c6d3d;
             color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
+            padding: 40px 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
         }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-between;
+        }
+
+        .footer-group {
+            min-width: 200px;
+        }
+
+        .footer-group h4 {
+            margin-bottom: 10px;
+            font-size: 1rem;
+            border-left: 4px solid #fff;
+            padding-left: 8px;
+        }
+
+        .footer-group p,
+        .footer-group a {
+            margin: 4px 0;
+            color: #e8e8e8;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            opacity: 0.8;
+            font-size: 0.8rem;
+        }
+            
         /* ===== ギャラリー ===== */
 
         .gallery-grid {
@@ -335,7 +426,7 @@
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            z-index: 10;   /* ← これが超重要！ */
+            z-index: 5;   /* ← これが超重要！ */
         }
 
         /* 星マークはCSSで付け足す */
@@ -374,7 +465,14 @@
 
 <!-- トップ -->
 <div class="hero" id="top">
-    <h1>広島大学ゴルフ部</h1>
+    <div>
+        <h1 class="title-main">広島大学ゴルフ部</h1>
+        <div class="title-line"></div>
+        <p class="title-sub">HIROSHIMA UNIVERSITY GOLF TEAM</p>
+    </div>
+
+    <!-- 下向き矢印 -->
+    <div class="scroll-down">⌄</div>
 </div>
 
 <!-- 部紹介 -->
@@ -437,15 +535,15 @@
         <div class="card member-card">
             <div class="member-img" style="background-image: url('images/members/meuchi.jpg');"></div>
             <h3>明地祐樹</h3>
-            <p>総合科学部 / 3年</p>
-            <p>コメント</p>
+            <p>工学部 / 2年</p>
+            <p>ベストスコア更新目指して頑張ります</p>
         </div>
 
         <div class="card member-card">
             <div class="member-img" style="background-image: url('images/members/torii.jpg');"></div>
             <h3>鳥居浩太</h3>
-            <p>総合科学部 / 3年</p>
-            <p>コメント</p>
+            <p>文学部 / 1年</p>
+            <p>ゴルフ経験は長いので頑張ります！ぜひ一緒にゴルフしましょう！</p>
         </div>
 
         <!-- 部員が増えてもコピペすればOK -->
@@ -500,8 +598,34 @@
 </section>
 
 <footer>
-    © 2025 広島大学ゴルフ部
+    <div class="footer-container">
+
+        <div class="footer-group">
+            <h4>広島大学ゴルフ部</h4>
+            <p>Hiroshima University Golf Team</p>
+            <p>所在地：広島県東広島市鏡山</p>
+        </div>
+
+        <div class="footer-group">
+            <h4>お問い合わせ</h4>
+            <p>メール：your_mail@example.com</p>
+            <p>Instagram：@hirodai_golf</p>
+        </div>
+
+        <div class="footer-group">
+            <h4>リンク</h4>
+            <a href="#top">トップ</a><br>
+            <a href="#about">部紹介</a><br>
+            <a href="#members">部員紹介</a><br>
+            <a href="#schedule">スケジュール</a><br>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2025 Hiroshima University Golf Team. All Rights Reserved.
+    </div>
 </footer>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const imgs = document.querySelectorAll('.gallery-grid img');
