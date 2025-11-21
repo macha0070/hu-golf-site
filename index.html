@@ -311,6 +311,39 @@
             font-size: 0.95rem;
         }
 
+        /* ===== スケジュール表 ===== */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .schedule-table th {
+            background: var(--primary);
+            color: white;
+            padding: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .schedule-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid #e5e5e5;
+            color: #333;
+        }
+
+        .schedule-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* 行ホバー（スポーツ公式風） */
+        .schedule-table tr:hover td {
+            background: #f3faf5;
+        }
         
 
         footer {
@@ -692,8 +725,30 @@
 <!-- スケジュール -->
 <section id="schedule">
     <h2>スケジュール</h2>
-    <p>大会・合宿・イベントの予定を掲載しています。</p>
-    <p>Googleカレンダーを埋め込む場合は以下に追加：</p>
+
+    <table class="schedule-table fade-in">
+        <thead>
+            <tr>
+                <th>月</th>
+                <th>イベント</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr><td>4月</td><td>新歓</td></tr>
+            <tr><td>5月</td><td>ショートコース月例会</td></tr>
+            <tr><td>6月</td><td>ショートコース月例会</td></tr>
+            <tr><td>7月</td><td>月例会</td></tr>
+            <tr><td>8月</td><td>中四国学生ゴルフ秋季2部校対抗戦</td></tr>
+            <tr><td>9月</td><td>夏期ゴルフ合宿</td></tr>
+            <tr><td>10月</td><td>ショートコース月例会</td></tr>
+            <tr><td>11月</td><td>月例会</td></tr>
+            <tr><td>12月</td><td>クリスマス月例会</td></tr>
+            <tr><td>1月</td><td>ショートコース月例会</td></tr>
+            <tr><td>2月</td><td>ショートコース月例会</td></tr>
+            <tr><td>3月</td><td>春期ゴルフ合宿 / 中四国学生ゴルフ春季2部校対抗戦</td></tr>
+        </tbody>
+    </table>
 
     <!-- 例：Googleカレンダー埋め込み -->
     <!--
