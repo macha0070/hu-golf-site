@@ -8,12 +8,20 @@
     <meta name="google-site-verification" content="eWsYFVLppyuOTtQJ0kqffaa2_iQK_AmvT0dG80dae0A" />
     <title>広島大学ゴルフ部 公式サイト</title>
     <style>
-        body {
-            margin: 0;
-            font-family: "Noto Sans JP", sans-serif;
-            background: #f5f5f5;
-            color: #333;
+        :root {
+            --primary: #0c6d3d;     /* メインの濃い緑 */
+            --accent:  #2f9e54;     /* ハイライト用の明るい緑 */
+            --bg-light: #f5f7f2;    /* 優しい白緑 */
+            --text-main: #222;
+            --text-sub: #555;
         }
+        body {
+            font-family: "Noto Sans JP", "Poppins", sans-serif;
+            background: var(--bg-light);
+            color: var(--text-main);
+            margin: 0;
+        }
+
 
         header {
             background: #0c6d3d;
@@ -48,7 +56,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.35); /* ← 黒透明レイヤーの濃さ（0.35がちょうど良い） */
+            background: rgba(0, 0, 0, 0.2); /* ← 黒透明レイヤーの濃さ（0.35がちょうど良い） */
             z-index: 1;
         }
 
@@ -73,6 +81,99 @@
             position: relative;
             color: white;
         }
+
+
+        /* ===== HERO セクション 強化版 ===== */
+        .hero {
+            height: 65vh;
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.55),
+                    rgba(0, 0, 0, 0.75)
+                ),
+                url("images/top.jpg") center/cover;
+            position: relative;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* 斜めライン（スポーツ系演出） */
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: -20%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background: linear-gradient(
+                120deg,
+                rgba(255,255,255,0.08) 0%,
+                rgba(255,255,255,0.03) 50%,
+                transparent 100%
+            );
+            transform: rotate(10deg);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* テキスト前面へ */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1.4s ease-out;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            opacity: 0.85;
+            margin-top: 10px;
+        }
+
+        .hero-line {
+            width: 90px;
+            height: 3px;
+            background: #2f9e54;
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        /* 下スクロール誘導アイコン */
+        .scroll-down {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.8rem;
+            opacity: 0.8;
+            animation: bounce 1.4s infinite;
+            z-index: 2;
+        }
+
+        /* フェードインアニメ */
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* バウンスアニメ */
+        @keyframes bounce {
+            0%,100% { transform: translate(-50%, 0); }
+            50% { transform: translate(-50%, -8px); }
+        }
+
 
         /* メインタイトル */
         .hero .title-main {
@@ -117,10 +218,13 @@
             50% { transform: translate(-50%, -8px); }
         }
 
+        /* ③ 見出しスタイル（左にブランドライン） */
         h2 {
-            color: #0c6d3d;
-            border-left: 6px solid #0c6d3d;
+            color: var(--primary);
+            border-left: 6px solid var(--primary);
             padding-left: 10px;
+            margin-bottom: 20px;
+            font-weight: 700;
         }
 
         /* セクション */
@@ -138,10 +242,11 @@
         }
 
         .card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 25px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
         
@@ -209,12 +314,9 @@
         
 
         footer {
-            background: #0c6d3d;
-            color: white;
-            padding: 40px 20px;
-            margin-top: 60px;
-            font-size: 0.9rem;
+            background: var(--primary);
         }
+
 
         .footer-container {
             max-width: 1100px;
@@ -233,6 +335,7 @@
             margin-bottom: 10px;
             font-size: 1rem;
             border-left: 4px solid #fff;
+            color: #e8e8e8;
             padding-left: 8px;
         }
 
@@ -447,6 +550,20 @@
             border: 3px solid #2d8a54; /* ちょい明るくして区別 */
         }
 
+
+        /* ===== スクロールフェードイン ===== */
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
     </style>
 </head>
 
@@ -465,20 +582,20 @@
 
 <!-- トップ -->
 <div class="hero" id="top">
-    <div>
-        <h1 class="title-main">広島大学ゴルフ部</h1>
-        <div class="title-line"></div>
-        <p class="title-sub">HIROSHIMA UNIVERSITY GOLF TEAM</p>
+    <div class="hero-content">
+        <h1 class="hero-title">広島大学ゴルフ部</h1>
+        <div class="hero-line"></div>
+        <p class="hero-sub">HIROSHIMA UNIVERSITY GOLF TEAM</p>
     </div>
 
-    <!-- 下向き矢印 -->
     <div class="scroll-down">⌄</div>
 </div>
 
+
 <!-- 部紹介 -->
 <section id="about">
-    <h2>部紹介</h2>
-    <div class="card-container">
+    <h2 >部紹介</h2>
+    <div class="card-container fade-in">
         <div class="card">
             <h3>創立年</h3>
             <p>1982年(創部44年目)</p>
@@ -514,7 +631,7 @@
 <!-- 部員紹介 -->
 <section id="members">
     <h2>部員紹介</h2>
-    <div class="card-container">
+    <div class="card-container fade-in">
 
         <div class="card member-card leader">
             <div class="badge">部長</div>
@@ -554,7 +671,7 @@
     <h2>ギャラリー</h2>
     <p>練習風景・大会写真・合宿などの様子をまとめています。</p>
 
-    <div class="gallery-grid">
+    <div class="gallery-grid fade-in">
         <img src="images/gallery/photo1.jpg" alt="">
         <img src="images/gallery/photo2.jpg" alt="">
         <img src="images/gallery/photo3.jpg" alt="">
@@ -656,6 +773,25 @@ document.addEventListener('DOMContentLoaded', function () {
             lightboxImg.src = "";
         }
     });
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const targets = document.querySelectorAll(".fade-in");
+
+    const options = {
+        threshold: 0.2
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, options);
+
+    targets.forEach(target => observer.observe(target));
 });
 </script>
 
