@@ -32,13 +32,15 @@
 
 
         header {
-            background: #0c6d3d;
+            background: #0c6d3d;/* 最初は透明 */
+         
             color: white;
             padding: 20px 40px;
             position: sticky;
             z-index: 1000;
             top: 0;
         }
+
 
         nav a {
             color: white;
@@ -48,17 +50,22 @@
         }
 
         .hero {
-            height: 55vh;
-            background: url("images/top.jpg") center/cover;
+            /* 高さの指定は1つにする */
+            height: 80vh; /* 65vhより少し高くした方が迫力が出ます */
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-        }
-        /* トップ画像の黒レイヤー */
-        .hero {
+            text-align: center;
             position: relative;
+            color: white;
+            overflow: hidden;
+            
+            /* 背景画像設定 */
+            background: 
+                linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6)),
+                url("images/top.jpg") center/cover;
         }
+
 
         .hero::before {
             content: "";
@@ -79,36 +86,10 @@
             font-size: 3rem;
             text-shadow: 0 3px 8px rgba(0,0,0,0.6);
         }
-        /* ===== HERO セクション強化版 ===== */
-        .hero {
-            height: 60vh;
-            background: 
-                linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
-                url("images/top.jpg") center/cover;
-            text-align: center;
-            position: relative;
-            color: white;
-        }
 
 
-        /* ===== HERO セクション 強化版 ===== */
-        .hero {
-            height: 65vh;
-            background:
-                linear-gradient(
-                    to bottom,
-                    rgba(0, 0, 0, 0.55),
-                    rgba(0, 0, 0, 0.75)
-                ),
-                url("images/top.jpg") center/cover;
-            position: relative;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-        }
+
+
 
         /* 斜めライン（スポーツ系演出） */
         .hero::after {
@@ -739,19 +720,19 @@
     <p>練習風景・大会写真・合宿などの様子をまとめています。</p>
 
     <div class="gallery-grid fade-in">
-        <img src="images/gallery/photo1.jpg" alt="">
-        <img src="images/gallery/photo2.jpg" alt="">
-        <img src="images/gallery/photo3.jpg" alt="">
-        <img src="images/gallery/photo4.jpg" alt="">
-        <img src="images/gallery/photo5.jpg" alt="">
-        <img src="images/gallery/photo6.jpg" alt="">
+        <img src="images/gallery/photo1.jpg" alt="" loading="lazy">
+        <img src="images/gallery/photo2.jpg" alt="" loading="lazy">
+        <img src="images/gallery/photo3.jpg" alt="" loading="lazy">
+        <img src="images/gallery/photo4.jpg" alt="" loading="lazy">
+        <img src="images/gallery/photo5.jpg" alt="" loading="lazy">
+        <img src="images/gallery/photo6.jpg" alt="" loading="lazy">
     </div>
 </section>
 <!-- 画像拡大用ライトボックス -->
 <div id="lightbox" class="lightbox">
   <div class="lightbox-inner">
     <span class="lightbox-close">&times;</span>
-    <img src="" alt="" id="lightbox-img">
+    <img src="" alt="" id="lightbox-img" loading="lazy">
   </div>
 </div>
 
@@ -869,6 +850,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 </script>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const targets = document.querySelectorAll(".fade-in");
