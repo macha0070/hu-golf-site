@@ -32,16 +32,97 @@
 
 
         header {
-            background: #0c6d3d;/* 最初は透明 */
-         
+            background: rgba(12, 109, 61, 0.9); /* 少し透けさせる */
+            backdrop-filter: blur(10px);        /* すりガラス効果（高級感！） */
             color: white;
-            padding: 20px 40px;
+            padding: 15px 30px;
             position: sticky;
-            z-index: 1000;
             top: 0;
+            z-index: 1000;
+            width: 100%;
+            box-sizing: border-box;
+            transition: background 0.3s, padding 0.3s;
         }
 
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
+        /* ロゴテキスト */
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            font-family: "Shippori Mincho", serif; /* 明朝体でかっこよく */
+            letter-spacing: 1px;
+            z-index: 1002; /* メニューより上に */
+        }
+
+        /* PC時のメニュー横並び */
+        .nav-menu ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu a {
+            color: white;
+            margin-left: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        /* ホバー時の下線アニメーション */
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #fff;
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* ハンバーガーボタン（PCでは非表示） */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 30px;
+            height: 24px;
+            position: relative;
+            z-index: 1002;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: white;
+            position: absolute;
+            left: 0;
+            transition: all 0.4s ease; /* なめらかなアニメーション */
+        }
+
+        /* 3本線の位置 */
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 11px; }
+        .hamburger span:nth-child(3) { bottom: 0; }
         nav a {
             color: white;
             margin-right: 20px;
@@ -410,10 +491,87 @@
         =========================== */
         @media (max-width: 768px) {
 
+/* ===========================
+   スマホ対応（768px以下）
+=========================== */
+        @media (max-width: 768px) {
+            
             header {
                 padding: 15px 20px;
             }
 
+            /* ハンバーガーを表示 */
+            .hamburger {
+                display: block;
+            }
+
+            /* メニューを隠す（初期状態） */
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%; /* 画面の右外へ飛ばす */
+                width: 80%;   /* 画面の8割を覆うドロワー */
+                height: 100vh;
+                background: #0c6d3d; /* 濃い緑 */
+                padding-top: 80px;
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* 高級感のある動き */
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+                z-index: 1001;
+            }
+
+            /* クラスがついたらメニューが出てくる */
+            .nav-menu.active {
+                right: 0;
+            }
+
+            /* スマホメニューのリスト */
+            .nav-menu ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+                opacity: 0; /* 最初は透明に */
+                transform: translateY(20px);
+                transition: opacity 0.4s, transform 0.4s;
+            }
+
+            /* メニューが開いたときに時間差で文字が出てくる（演出） */
+            .nav-menu.active li {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            /* 1つずつ遅らせる */
+            .nav-menu.active li:nth-child(1) { transition-delay: 0.1s; }
+            .nav-menu.active li:nth-child(2) { transition-delay: 0.2s; }
+            .nav-menu.active li:nth-child(3) { transition-delay: 0.3s; }
+            .nav-menu.active li:nth-child(4) { transition-delay: 0.4s; }
+            .nav-menu.active li:nth-child(5) { transition-delay: 0.5s; }
+            .nav-menu.active li:nth-child(6) { transition-delay: 0.6s; }
+
+            .nav-menu a {
+                display: block;
+                padding: 20px;
+                font-size: 1.2rem;
+                margin-left: 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            /* ===== ハンバーガーが×になるアニメーション ===== */
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg);
+                top: 11px;
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0; /* 真ん中の線は消える */
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg);
+                bottom: 11px;
+            }
+        }
             nav a {
                 margin-right: 12px;
                 font-size: 14px;
@@ -691,14 +849,28 @@
 <body>
 
 <header>
-    <nav>
-        <a href="#top">トップ</a>
-        <a href="#about">部紹介</a>
-        <a href="#members">部員紹介</a>
-        <a href="#gallery">ギャラリー</a>
-        <a href="#schedule">スケジュール</a>
-        <a href="#contact">お問い合わせ</a>
-    </nav>
+    <div class="header-container">
+        <a href="#top" class="logo">広島大学ゴルフ部</a>
+
+        <button class="hamburger" aria-label="メニューを開く">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#top">トップ</a></li>
+                <li><a href="#about">部紹介</a></li>
+                <li> <a href="#message">代表挨拶</a></li>
+                <li><a href="#members">部員紹介</a></li>
+                <li><a href="#gallery">ギャラリー</a></li>
+                <li><a href="#schedule">スケジュール</a></li>
+                <li><a href="#faq">よくある質問</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
 
 <!-- トップ -->
@@ -965,6 +1137,27 @@
 </footer>
 
 <script>
+/* ===== ハンバーガーメニューの開閉処理 ===== */
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+
+    // ハンバーガーボタンをクリックしたとき
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active'); // ボタンを×にする
+        navMenu.classList.toggle('active');   // メニューを出す
+    });
+
+    // メニュー内のリンクをクリックしたとき（メニューを閉じる）
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+});
+/* ===== ギャラリーのライトボックス機能 ===== */
 document.addEventListener('DOMContentLoaded', function () {
     const imgs = document.querySelectorAll('.gallery-grid img');
     const lightbox = document.getElementById('lightbox');
